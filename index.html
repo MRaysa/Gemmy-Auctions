@@ -499,6 +499,54 @@
                 </p>
             </div>
         </div>
+
+        <div class="mt-6 border rounded-xl p-4 bg-gray-50">
+            <h4 class="font-semibold mb-3 flex items-center">
+                <i class="fas fa-cube mr-2 text-blue-500"></i> 360° View
+            </h4>
+            <div class="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
+                <!-- Using a high-quality gemstone image from Unsplash -->
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop"
+                    alt="3D Gemstone View" class="w-full h-full object-cover">
+                <button
+                    class="absolute bottom-3 right-3 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition">
+                    <i class="fas fa-rotate"></i>
+                </button>
+            </div>
+            <p class="text-xs text-gray-500 mt-2 text-center">Drag or click rotate to view from all angles</p>
+        </div>
+
+
+        <div class="bg-red-100 p-3 rounded-lg flex items-center justify-center mb-6 mt-4">
+            <i class="fas fa-bolt text-red-500 mr-2"></i>
+            <span class="font-bold">LIVE NOW:</span>
+            <span class="countdown-timer ml-2 font-mono" data-end="2025-06-22T10:00:00">
+                00:00:00
+            </span>
+            <a href="#" class="ml-4 text-red-600 hover:text-red-800 font-semibold">
+                Join Live Auction <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+
+        <script>
+            // Add this JavaScript to make the timer functional
+            function updateCountdown() {
+                const timer = document.querySelector('.countdown-timer');
+                const endTime = new Date(timer.dataset.end).getTime();
+                const now = new Date().getTime();
+                const distance = endTime - now;
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                timer.textContent = `${hours}h ${minutes}m ${seconds}s`;
+            }
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        </script>
+
+
     </main>
 
     <footer class="bg-gradient-to-r from-blue-800 to-blue-900 text-white p-8 mt-16">
