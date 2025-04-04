@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemmy Auctions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.9/daisyui.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/6f086dc852.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/3d5af1/diamond--v1.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf6f2;
+        }
+
+        .cute-header {
+            background: linear-gradient(135deg, #6b8cff 0%, #3d5af1 100%);
+            border-bottom: 4px solid #ffd166;
+        }
+
+        .cute-btn {
+            background: linear-gradient(135deg, #6b8cff 0%, #3d5af1 100%);
+            border-radius: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cute-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .gem-card {
+            transition: all 0.3s;
+            border-radius: 16px;
+            background: white;
+            border: 2px solid #e9e9e9;
+        }
+
+        .gem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: #6b8cff;
+        }
+
+        .countdown-bubble {
+            background: #ffd166;
+            color: #333;
+            border-radius: 50px;
+            padding: 5px 12px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .thumbnail {
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .thumbnail:hover {
+            border-color: #6b8cff;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cute-header text-white p-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center">
+            <i class="fas fa-gem text-2xl mr-2 text-yellow-200"></i>
+            <h1 class="text-2xl font-bold">Gemmy Auctions</h1>
+        </div>
+        <nav class="hidden md:flex space-x-6">
+            <a href="#" class="hover:text-yellow-200 transition flex items-center">
+                <i class="fas fa-gavel mr-2"></i> Auctions
+            </a>
+            <a href="#" class="hover:text-yellow-200 transition flex items-center">
+                <i class="fas fa-store mr-2"></i> Shop
+            </a>
+            <a href="#" class="hover:text-yellow-200 transition flex items-center">
+                <i class="fas fa-trophy mr-2"></i> Top Picks
+            </a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <div class="relative">
+                <i class="fas fa-shopping-cart text-2xl hover:text-yellow-200 transition cursor-pointer"></i>
+                <span
+                    class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+            </div>
+            <div
+                class="w-10 h-10 rounded-full bg-pink-200 flex items-center justify-center cursor-pointer hover:bg-pink-300 transition">
+                <i class="fas fa-user text-lg text-pink-700"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto my-8 px-4">
+        <!-- Auction Summary Banner -->
+        <section class="bg-white rounded-2xl p-6 shadow-lg border-2 border-blue-100">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center text-center">
+                <div class="p-3 rounded-xl bg-blue-50">
+                    <p class="text-xl font-bold text-blue-700">$18.00</p>
+                    <p class="text-sm text-blue-500">Current Bid</p>
+                </div>
+                <div class="p-3 rounded-xl bg-purple-50">
+                    <p class="text-xl font-bold text-purple-700">10</p>
+                    <p class="text-sm text-purple-500">Bids</p>
+                </div>
+                <div class="p-3 rounded-xl bg-amber-50">
+                    <p class="text-xl font-bold text-amber-700">3D 19H 17M</p>
+                    <p class="text-sm text-amber-500">Ends: 06/22/2025</p>
+                </div>
+                <div>
+                    <button class="cute-btn text-white py-3 px-6 w-full">
+                        <i class="fas fa-gavel mr-2"></i> Place Bid
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mt-8">
+            <!-- Product Images and Title -->
+            <div class="lg:col-span-2">
+                <div class="flex items-center mb-4">
+                    <div class="w-3 h-8 rounded-full bg-blue-400 mr-2"></div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800">24.55 Natural Green Rutile Peridot Gemstone
+                    </h2>
+                </div>
+
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop"
+                        alt="Gemstone" class="w-full h-64 md:h-80 lg:h-96 object-cover rounded-2xl shadow-lg">
+                    <div class="absolute top-4 left-4">
+                        <span class="countdown-bubble">
+                            <i class="fas fa-clock mr-1"></i> 3D 19H left
+                        </span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3 mt-4">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&auto=format&fit=crop"
+                        alt="Thumbnail"
+                        class="thumbnail w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg cursor-pointer object-cover hover:border-2 hover:border-blue-400 transition-all">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&auto=format&fit=crop"
+                        alt="Thumbnail"
+                        class="thumbnail w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg cursor-pointer object-cover hover:border-2 hover:border-blue-400 transition-all">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&auto=format&fit=crop"
+                        alt="Thumbnail"
+                        class="thumbnail w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg cursor-pointer object-cover hover:border-2 hover:border-blue-400 transition-all">
+                </div>
+            </div>
+
+            <!-- Bidding Section -->
+            <div class="space-y-6">
+                <!-- Notification Bubble -->
+                <div class="flex items-center bg-blue-100 p-4 rounded-2xl shadow-inner">
+                    <div class="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center mr-3">
+                        <i class="fas fa-info-circle text-blue-600"></i>
+                    </div>
+                    <p class="text-blue-700">You haven't bid on this sparkly gem yet!</p>
+                </div>
+
+                <!-- Bidding Box -->
+                <div class="border-2 border-blue-100 p-6 rounded-2xl bg-white shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-gray-700 flex items-center">
+                        <i class="fas fa-gavel text-amber-500 mr-2"></i> Place Your Bid
+                    </h3>
+
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500">Started price:</span>
+                            <span class="font-semibold">$15.00</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500">Current bid:</span>
+                            <span class="font-semibold text-blue-600">$18.00</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500">Buy Now:</span>
+                            <span class="font-semibold text-green-600">$45.00</span>
+                        </div>
+                    </div>
+
+                    <div class="relative mb-4">
+                        <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">$</span>
+                        <input type="text" placeholder="Enter your bid"
+                            class="w-full pl-8 p-3 border-2 border-blue-100 rounded-xl focus:border-blue-300 focus:outline-none">
+                    </div>
+
+                    <button class="cute-btn text-white py-3 w-full mb-3">
+                        <i class="fas fa-hand-holding-usd mr-2"></i> Place Bid
+                    </button>
+                    <button
+                        class="w-full py-3 bg-gradient-to-r from-green-400 to-green-500 text-white rounded-xl shadow hover:shadow-md transition">
+                        <i class="fas fa-bolt mr-2"></i> Buy Now
+                    </button>
+                </div>
+
+                <!-- Bids History -->
+                <div class="border-2 border-purple-100 p-6 rounded-2xl bg-white shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-gray-700 flex items-center">
+                        <i class="fas fa-history text-purple-500 mr-2"></i> Bids History (10)
+                    </h3>
+
+                    <div class="space-y-3 max-h-60 overflow-y-auto pr-2">
+                        <div class="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center mr-3">
+                                    <i class="fas fa-user text-purple-600 text-xs"></i>
+                                </div>
+                                <span class="text-sm">2 hours ago</span>
+                            </div>
+                            <span class="font-semibold text-purple-700">$17.00</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center mr-3">
+                                    <i class="fas fa-user text-purple-600 text-xs"></i>
+                                </div>
+                                <span class="text-sm">3 hours ago</span>
+                            </div>
+                            <span class="font-semibold text-purple-700">$16.50</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center mr-3">
+                                    <i class="fas fa-user text-purple-600 text-xs"></i>
+                                </div>
+                                <span class="text-sm">5 hours ago</span>
+                            </div>
+                            <span class="font-semibold text-purple-700">$16.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+            <div class="border-2 border-pink-100 p-6 rounded-2xl bg-white shadow-lg">
+                <h3 class="text-xl font-bold mb-4 text-gray-700 flex items-center">
+                    <i class="fas fa-info-circle text-pink-500 mr-2"></i> Gemstone Details
+                </h3>
+                <ul class="space-y-2">
+                    <li class="flex justify-between py-2 border-b border-pink-50">
+                        <span class="text-gray-600">Type:</span>
+                        <span class="font-medium">Peridot</span>
+                    </li>
+                    <li class="flex justify-between py-2 border-b border-pink-50">
+                        <span class="text-gray-600">Weight:</span>
+                        <span class="font-medium">24.55 carats</span>
+                    </li>
+                    <li class="flex justify-between py-2 border-b border-pink-50">
+                        <span class="text-gray-600">Origin:</span>
+                        <span class="font-medium">Pakistan</span>
+                    </li>
+                    <li class="flex justify-between py-2">
+                        <span class="text-gray-600">Clarity:</span>
+                        <span class="font-medium">Eye Clean</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="border-2 border-teal-100 p-6 rounded-2xl bg-white shadow-lg">
+                <h3 class="text-xl font-bold mb-4 text-gray-700 flex items-center">
+                    <i class="fas fa-align-left text-teal-500 mr-2"></i> Sparkling Description
+                </h3>
+                <p class="text-gray-600">
+                    This exquisite natural green rutile peridot gemstone is a true collector's item.
+                    With its vibrant olive-green hue and exceptional clarity, it captures light beautifully.
+                    The stone features delicate rutile inclusions that create a mesmerizing "cat's eye" effect
+                    when cut en cabochon. Mined from the mountains of Pakistan, this 24.55 carat beauty is
+                    perfect for unique jewelry creations or as a standout piece in any gem collection.
+                </p>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="mt-12">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold uppercase">
+                    You Might Also <span class="text-blue-500">Love</span>
+                    <div class="w-16 h-1 bg-blue-400 rounded-full mx-auto mt-2"></div>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product Card -->
+                <div class="gem-card p-4">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop"
+                            alt="Gemstone" class="w-full h-48 object-cover rounded-xl">
+                        <div
+                            class="absolute top-3 right-3 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow">
+                            <i class="fas fa-heart text-pink-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold mt-3 text-lg">Blue Sapphire Pair</h3>
+                    <div class="flex items-center mt-2">
+                        <div class="w-4 h-4 rounded-full bg-blue-400 mr-1"></div>
+                        <div class="w-4 h-4 rounded-full bg-blue-500 mr-1"></div>
+                        <div class="w-4 h-4 rounded-full bg-blue-600 mr-2"></div>
+                        <span class="text-gray-600 text-sm">2.3ct each</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-3">
+                        <div>
+                            <p class="text-gray-500 text-sm">Current Bid</p>
+                            <p class="text-blue-600 font-bold">$1,250</p>
+                        </div>
+                        <button class="text-xs cute-btn text-white px-4 py-1">
+                            Bid Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Repeat for other products -->
+                <div class="gem-card p-4">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=800&auto=format&fit=crop"
+                            alt="Gemstone" class="w-full h-48 object-cover rounded-xl">
+                        <div
+                            class="absolute top-3 right-3 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow">
+                            <i class="fas fa-heart text-pink-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold mt-3 text-lg">Pink Tourmaline</h3>
+                    <div class="flex items-center mt-2">
+                        <div class="w-4 h-4 rounded-full bg-pink-300 mr-1"></div>
+                        <div class="w-4 h-4 rounded-full bg-pink-400 mr-1"></div>
+                        <div class="w-4 h-4 rounded-full bg-pink-500 mr-2"></div>
+                        <span class="text-gray-600 text-sm">5.8ct</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-3">
+                        <div>
+                            <p class="text-gray-500 text-sm">Current Bid</p>
+                            <p class="text-blue-600 font-bold">$890</p>
+                        </div>
+                        <button class="text-xs cute-btn text-white px-4 py-1">
+                            Bid Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gem-card p-4">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&auto=format&fit=crop"
+                            alt="Gemstone" class="w-full h-48 object-cover rounded-xl">
+                        <div
+                            class="absolute top-3 right-3 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow">
+                            <i class="fas fa-heart text-pink-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold mt-3 text-lg">Amethyst Cluster</h3>
+                    <div class="flex items-center mt-2">
+                        <div class="w-4 h-4 rounded-full bg-purple-300 mr-1"></div>
+                        <div class="w-4 h-4 rounded-full bg-purple-400 mr-1"></div>
+                        <div class="w-4 h-4 rounded-full bg-purple-500 mr-2"></div>
+                        <span class="text-gray-600 text-sm">28ct total</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-3">
+                        <div>
+                            <p class="text-gray-500 text-sm">Current Bid</p>
+                            <p class="text-blue-600 font-bold">$650</p>
+                        </div>
+                        <button class="text-xs cute-btn text-white px-4 py-1">
+                            Bid Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Auctions Section -->
+        <section class="mt-16">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold uppercase">
+                    Latest <span class="text-teal-500">Sparkles</span>
+                    <div class="w-16 h-1 bg-teal-400 rounded-full mx-auto mt-2"></div>
+                </h2>
+                <p class="text-gray-500 mt-2">Freshly listed gems waiting for their new home</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Auction Card -->
+                <div class="gem-card p-5">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop"
+                            alt="Gemstone" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute bottom-3 left-3">
+                            <span class="countdown-bubble">
+                                <i class="fas fa-clock mr-1"></i> 11D 11H left
+                            </span>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold mt-4 text-lg">Blue Sapphire Pair</h3>
+                    <div class="grid grid-cols-3 gap-2 mt-4 text-center">
+                        <div>
+                            <p class="text-gray-500 text-xs">Start</p>
+                            <p class="font-semibold">$1,000</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-xs">Current</p>
+                            <p class="font-semibold text-blue-600">$1,250</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-xs">Bids</p>
+                            <p class="font-semibold">4</p>
+                        </div>
+                    </div>
+                    <button class="w-full mt-4 cute-btn text-white py-2 rounded-xl">
+                        <i class="fas fa-eye mr-2"></i> View Auction
+                    </button>
+                </div>
+
+                <!-- Repeat for other auction cards -->
+                <div class="gem-card p-5">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=800&auto=format&fit=crop"
+                            alt="Gemstone" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute bottom-3 left-3">
+                            <span class="countdown-bubble">
+                                <i class="fas fa-clock mr-1"></i> 8D 6H left
+                            </span>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold mt-4 text-lg">Pink Tourmaline</h3>
+                    <div class="grid grid-cols-3 gap-2 mt-4 text-center">
+                        <div>
+                            <p class="text-gray-500 text-xs">Start</p>
+                            <p class="font-semibold">$750</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-xs">Current</p>
+                            <p class="font-semibold text-blue-600">$890</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-xs">Bids</p>
+                            <p class="font-semibold">7</p>
+                        </div>
+                    </div>
+                    <button class="w-full mt-4 cute-btn text-white py-2 rounded-xl">
+                        <i class="fas fa-eye mr-2"></i> View Auction
+                    </button>
+                </div>
+
+                <div class="gem-card p-5">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&auto=format&fit=crop"
+                            alt="Gemstone" class="w-full h-48 object-cover rounded-xl">
+                        <div class="absolute bottom-3 left-3">
+                            <span class="countdown-bubble">
+                                <i class="fas fa-clock mr-1"></i> 5D 2H left
+                            </span>
+                        </div>
+                    </div>
+                    <h3 class="font-semibold mt-4 text-lg">Amethyst Cluster</h3>
+                    <div class="grid grid-cols-3 gap-2 mt-4 text-center">
+                        <div>
+                            <p class="text-gray-500 text-xs">Start</p>
+                            <p class="font-semibold">$500</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-xs">Current</p>
+                            <p class="font-semibold text-blue-600">$650</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-xs">Bids</p>
+                            <p class="font-semibold">12</p>
+                        </div>
+                    </div>
+                    <button class="w-full mt-4 cute-btn text-white py-2 rounded-xl">
+                        <i class="fas fa-eye mr-2"></i> View Auction
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <button class="cute-btn text-white px-8 py-3 rounded-full inline-flex items-center">
+                    Explore All Gems
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gradient-to-r from-blue-800 to-blue-900 text-white p-8 mt-16">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-gem text-2xl text-yellow-200 mr-2"></i>
+                    <h3 class="text-xl font-bold">Gemmy Auctions</h3>
+                </div>
+                <p class="text-blue-200 text-sm">
+                    Premium marketplace for rare gems and fine jewelry auctions.
+                </p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#"
+                        class="w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-600 transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 rounded-full bg-blue-400 flex items-center justify-center hover:bg-blue-300 transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center hover:bg-pink-400 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-blue-200 hover:text-yellow-200 transition">Home</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-yellow-200 transition">Live Auctions</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-yellow-200 transition">How It Works</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-yellow-200 transition">About Us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-lg mb-4">Categories</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-blue-200 hover:text-yellow-200 transition">Gemstones</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-yellow-200 transition">Fine Jewelry</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-yellow-200 transition">Rare Collectibles</a></li>
+                    <li><a href="#" class="text-blue-200 hover:text-yellow-200 transition">Luxury Watches</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-lg mb-4">Newsletter</h4>
+                <p class="text-blue-200 text-sm mb-3">
+                    Subscribe for exclusive auction alerts and special offers.
+                </p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email"
+                        class="px-3 py-2 rounded-l-lg w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-300">
+                    <button class="bg-yellow-400 text-gray-800 px-4 rounded-r-lg hover:bg-yellow-300 transition">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-blue-700 mt-8 pt-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-blue-300 text-sm mb-2 md:mb-0">
+                    &copy; 2025 Gemmy Auctions. All rights reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-blue-300 hover:text-yellow-200 transition text-sm">Privacy Policy</a>
+                    <a href="#" class="text-blue-300 hover:text-yellow-200 transition text-sm">Terms of Service</a>
+                    <a href="#" class="text-blue-300 hover:text-yellow-200 transition text-sm">Contact Us</a>
+                </div>
+            </div>
+            <div class="text-center mt-4 text-xs text-blue-400">
+                Crafted with <i class="fas fa-heart text-red-400"></i> by Mst. Aysa Siddika Meem
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
