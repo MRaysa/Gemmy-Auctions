@@ -460,6 +460,54 @@
             </div>
         </section>
 
+
+        <!-- Recently Viewed -->
+        <div class="mt-12">
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+                <i class="fas fa-clock-rotate-left mr-2 text-blue-500"></i> Recently Viewed
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="border rounded-lg p-2 cursor-pointer hover:shadow">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&auto=format&fit=crop"
+                        alt="Recent view" class="w-full h-20 object-cover rounded">
+                    <p class="text-xs mt-1 truncate">Blue Sapphire</p>
+                </div>
+                <div class="border rounded-lg p-2 cursor-pointer hover:shadow">
+                    <img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=200&auto=format&fit=crop"
+                        alt="Recent view" class="w-full h-20 object-cover rounded">
+                    <p class="text-xs mt-1 truncate">Pink Tourmaline</p>
+                </div>
+                <div class="border rounded-lg p-2 cursor-pointer hover:shadow">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&auto=format&fit=crop"
+                        alt="Recent view" class="w-full h-20 object-cover rounded">
+                    <p class="text-xs mt-1 truncate">Amethyst</p>
+                </div>
+                <div class="border rounded-lg p-2 cursor-pointer hover:shadow">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=200&auto=format&fit=crop"
+                        alt="Recent view" class="w-full h-20 object-cover rounded">
+                    <p class="text-xs mt-1 truncate">Emerald</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="mt-6 border rounded-xl p-4 bg-gray-50">
+            <h4 class="font-semibold mb-3 flex items-center">
+                <i class="fas fa-cube mr-2 text-blue-500"></i> 360° View
+            </h4>
+            <div class="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
+                <!-- Using a high-quality gemstone image from Unsplash -->
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop"
+                    alt="3D Gemstone View" class="w-full h-full object-cover">
+                <button
+                    class="absolute bottom-3 right-3 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition">
+                    <i class="fas fa-rotate"></i>
+                </button>
+            </div>
+            <p class="text-xs text-gray-500 mt-2 text-center">Drag or click rotate to view from all angles</p>
+        </div>
+
         <!-- Details Sections -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             <div class="border-2 border-pink-100 p-6 rounded-2xl bg-white shadow-lg">
@@ -500,22 +548,90 @@
             </div>
         </div>
 
-        <div class="mt-6 border rounded-xl p-4 bg-gray-50">
-            <h4 class="font-semibold mb-3 flex items-center">
-                <i class="fas fa-cube mr-2 text-blue-500"></i> 360° View
-            </h4>
-            <div class="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-                <!-- Using a high-quality gemstone image from Unsplash -->
-                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop"
-                    alt="3D Gemstone View" class="w-full h-full object-cover">
-                <button
-                    class="absolute bottom-3 right-3 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition">
-                    <i class="fas fa-rotate"></i>
-                </button>
+
+
+        <!-- Virtual Try-On & Shipping -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <div class="border rounded-xl p-4 bg-gray-50">
+                <h4 class="font-semibold mb-3 flex items-center">
+                    <i class="fas fa-mobile-screen mr-2 text-purple-500"></i> Virtual Try-On
+                </h4>
+                <div class="flex space-x-4">
+                    <button
+                        class="flex-1 border-2 border-purple-300 text-purple-700 py-2 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-earrings mr-2"></i> Earrings
+                    </button>
+                    <button
+                        class="flex-1 border-2 border-purple-300 text-purple-700 py-2 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-ring mr-2"></i> Ring
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">Use your phone camera to see how it looks on you</p>
             </div>
-            <p class="text-xs text-gray-500 mt-2 text-center">Drag or click rotate to view from all angles</p>
+
+            <div class="border rounded-xl p-4 bg-gray-50">
+                <h4 class="font-semibold mb-3 flex items-center">
+                    <i class="fas fa-truck-fast mr-2 text-green-500"></i> Delivery Options
+                </h4>
+                <select class="w-full p-2 border rounded-lg mb-2">
+                    <option>Standard Shipping (3-5 days) - $25</option>
+                    <option>Express Shipping (1-2 days) - $50</option>
+                    <option>International (7-10 days) - $75</option>
+                </select>
+                <div class="flex items-center">
+                    <input type="checkbox" id="insurance" class="mr-2">
+                    <label for="insurance" class="text-sm">Add Insurance (+1.5% of value)</label>
+                </div>
+            </div>
         </div>
 
+        <!-- Expert Appraisal -->
+        <div class="border-l-4 border-blue-400 pl-4 my-6">
+            <div class="flex items-start">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&auto=format&fit=crop"
+                    alt="Gemologist" class="w-12 h-12 rounded-full mr-3 object-cover">
+                <div>
+                    <h4 class="font-bold">Expert Appraisal</h4>
+                    <p class="text-sm text-gray-600">"This peridot exhibits exceptional clarity and color saturation,
+                        making it a rare find in today's market."</p>
+                    <p class="text-xs text-gray-500 mt-1">- Sarah Johnson, GIA Gemologist</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="bg-blue-50 p-6 rounded-xl mt-12">
+            <h3 class="text-lg font-bold mb-4 text-center">Trusted By Collectors Worldwide</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                    <p class="text-2xl font-bold text-blue-700">1,250+</p>
+                    <p class="text-sm">Successful Auctions</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-blue-700">98%</p>
+                    <p class="text-sm">Positive Feedback</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-blue-700">5,000+</p>
+                    <p class="text-sm">Registered Collectors</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-blue-700">$10M+</p>
+                    <p class="text-sm">In Transactions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Matching -->
+        <div class="border rounded-xl p-6 bg-gradient-to-r from-purple-50 to-blue-50 mt-8">
+            <h3 class="font-bold text-lg mb-2 flex items-center">
+                <i class="fas fa-robot mr-2 text-purple-500"></i> Find Your Perfect Gem
+            </h3>
+            <p class="text-sm text-gray-600 mb-4">Our AI will recommend gems based on your preferences</p>
+            <button class="w-full cute-btn text-white px-4 py-2 rounded-lg text-sm font-medium">
+                <i class="fas fa-magic mr-2"></i> Try Gem Match
+            </button>
+        </div>
 
         <div class="bg-red-100 p-3 rounded-lg flex items-center justify-center mb-6 mt-4">
             <i class="fas fa-bolt text-red-500 mr-2"></i>
@@ -528,23 +644,9 @@
             </a>
         </div>
 
-        <script>
-            // Add this JavaScript to make the timer functional
-            function updateCountdown() {
-                const timer = document.querySelector('.countdown-timer');
-                const endTime = new Date(timer.dataset.end).getTime();
-                const now = new Date().getTime();
-                const distance = endTime - now;
+        <!--  -->
 
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                timer.textContent = `${hours}h ${minutes}m ${seconds}s`;
-            }
-            setInterval(updateCountdown, 1000);
-            updateCountdown();
-        </script>
 
 
     </main>
@@ -560,7 +662,7 @@
                     Premium marketplace for rare gems and fine jewelry auctions.
                 </p>
                 <div class="flex space-x-4 mt-4">
-                    <a href="#"
+                    <a href="https://www.facebook.com/muniaislam.meem"
                         class="w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center hover:bg-blue-600 transition">
                         <i class="fab fa-facebook-f"></i>
                     </a>
@@ -572,7 +674,7 @@
                         class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center hover:bg-pink-400 transition">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#"
+                    <a href="https://github.com/MRaysa"
                         class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition">
                         <i class="fab fa-github"></i>
                     </a>
@@ -630,6 +732,24 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const timer = document.querySelector('.countdown-timer');
+            const endTime = new Date(timer.dataset.end).getTime();
+            const now = new Date().getTime();
+            const distance = endTime - now;
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            timer.textContent = `${hours}h ${minutes}m ${seconds}s`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 
 </html>
